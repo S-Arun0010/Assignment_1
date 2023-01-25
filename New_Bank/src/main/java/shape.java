@@ -71,7 +71,7 @@ public class shape {
                 System.out.println("Area of Triangle :" + triangle.area(s1, s2, base));
                 break;
             default:
-                System.out.println("Enter the valid shape :");
+                logger.log("Enter the valid shape :");
         }
     }
 }
