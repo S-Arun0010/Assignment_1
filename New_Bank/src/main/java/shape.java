@@ -38,7 +38,7 @@ public class shape {
     }
     double area(int a, int b, int c) {
         double s = (double) (a + b + c) / 2;
-        System.out.println(s);
+        logger.log(s);
         return (Math.sqrt(s * (s - a) * (s - c) * (s - b)));
     }
     public static void main(String[] args) {
@@ -54,7 +54,7 @@ public class shape {
                 logger.log("Area of Circle :" + circle.area(radius));
                 break;
             case "rectangle":
-                System.out.println("Enter the length and width :");
+                logger.log("Enter the length and width :");
                 int length = sc.nextInt();
                 int width = sc.nextInt();
                 shape rectangle = new shape(length, width);
