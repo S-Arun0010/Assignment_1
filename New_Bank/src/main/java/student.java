@@ -2,17 +2,17 @@ import java.util.Scanner;
 public class Student {
     String name;
     char gradelevel;
-    double gpa;
+    double gp;
     student(String n, char g, double gpa) {
         name = n;
         gradelevel = g;
-        gpa = gpa;
+        gp = gpa;
     }
     public void updategpa(double gpa) {
-        gpa = gpa;
+        gpa = gp;
     }
     public String details() {
-        return (name + " has a " + Double.toString(gpa) + " GPA");
+        return (name + " has a " + Double.toString(gp) + " GPA");
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
