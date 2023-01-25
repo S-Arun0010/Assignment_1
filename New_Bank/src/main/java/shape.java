@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.lang.Math;
 public class shape {
     int rectangale;
     int triangle;
@@ -7,7 +6,9 @@ public class shape {
     int length;
     int width;
     int radius;
-    int a, b, c;
+    int a;
+    int b;
+    int c;
     public shape(int r) {
         radius = r;
     }
@@ -43,14 +44,14 @@ public class shape {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the Shape:");
-        String Name = sc.nextLine();
-        switch (Name) {
+        String name = sc.nextLine();
+        switch (name) {
             case "circle":
                 System.out.println("Enter the radius :");
                 int radius = sc.nextInt();
-                shape Circle = new shape(radius);
-                System.out.println("Perimeter of Circle :" + Circle.perimeter(radius));
-                System.out.println("Area of Circle :" + Circle.area(radius));
+                shape circle = new shape(radius);
+                System.out.println("Perimeter of Circle :" + circle.perimeter(radius));
+                System.out.println("Area of Circle :" + circle.area(radius));
                 break;
             case "rectangle":
                 System.out.println("Enter the length and width :");
@@ -74,4 +75,5 @@ public class shape {
         }
     }
 }
+
 
