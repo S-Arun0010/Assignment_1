@@ -1,5 +1,5 @@
 import java.util.*;
-public class bank {
+public class Bank {
     String name;
     long accno;
     int balance;
@@ -24,7 +24,7 @@ public class bank {
         }
     }
     public static void main(String[] args) {
-        bank a = new bank("Arun", 123456789123456789L, 1000);
+        Bank a = new Bank("Arun", 123456789123456789L, 1000);
         logger.log("Name :" + a.name);
        logger.log("Account Number :" + a.accno);
         logger.log("Current Balance :" + a.balance);
@@ -35,7 +35,7 @@ public class bank {
             String expression = sc.nextLine();
             switch (expression) {
                 case "Deposit":
-                    System.out.println("Enter the deposite Amount :");
+                    logger.log("Enter the deposite Amount :");
                     int depositamount = sc.nextInt();
                     a.deposit(depositamount);
                     break;
