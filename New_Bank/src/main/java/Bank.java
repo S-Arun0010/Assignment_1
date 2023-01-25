@@ -1,24 +1,24 @@
 import java.util.*;
 public class Bank {
     String name;
-    long acc_no;
+    long accno;
     int balance;
-    public Bank(String N, long A, int B) {
-        name = N;
-        acc_no = A;
-        balance = B;
+    public Bank(String n, long a, int b) {
+        name = n;
+        accno = a;
+        balance = b;
     }
-    public void Balance_Amount() {
+    public void balanceamount() {
         System.out.println("Total Balance Amount :" + balance + "Rs");
     }
-    public void Deposit(int Deposit_Amount) {
-        System.out.println("The Deposited Amount is :" + Deposit_Amount + "Rs");
-        balance = balance + Deposit_Amount;
+    public void deposit(int depositamount) {
+        System.out.println("The Deposited Amount is :" + depositamount + "Rs");
+        balance = balance + depositamount;
     }
-    public void Withdraw(int withdraw_Amount) {
-        if (withdraw_Amount < balance) {
-            System.out.println("Total Amount withdrawed :" + withdraw_Amount + "Rs");
-            balance = balance - withdraw_Amount;
+    public void withdraw(int withdrawamount) {
+        if (withdrawamount < balance) {
+            System.out.println("Total Amount withdrawed :" + withdrawamount + "Rs");
+            balance = balance - withdrawamount;
         } else {
             System.out.println("Insufficient balance");
         }
@@ -26,7 +26,7 @@ public class Bank {
     public static void main(String[] args) {
         Bank a = new Bank("Arun", 123456789123456789L, 1000);
         System.out.println("Name :" + a.name);
-        System.out.println("Account Number :" + a.acc_no);
+        System.out.println("Account Number :" + a.accno);
         System.out.println("Current Balance :" + a.balance);
         int check = 0;
         do {
@@ -36,16 +36,16 @@ public class Bank {
             switch (expression) {
                 case "Deposit":
                     System.out.println("Enter the deposite Amount :");
-                    int Deposit_Amount = sc.nextInt();
-                    a.Deposit(Deposit_Amount);
+                    int depositamount = sc.nextInt();
+                    a.deposit(depositamount);
                     break;
                 case "Withdraw":
                     System.out.println("Enter the withdraw Amount :");
-                    int withdraw_Amount = sc.nextInt();
-                    a.Withdraw(withdraw_Amount);
+                    int withdrawamount = sc.nextInt();
+                    a.withdraw(withdrawamount);
                     break;
                 case "Balance":
-                    a.Balance_Amount();
+                    a.balanceamount();
                     break;
                 default:
                     System.out.println("Enter the valid transaction");
