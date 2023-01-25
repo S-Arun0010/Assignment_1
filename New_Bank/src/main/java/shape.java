@@ -43,23 +43,23 @@ public class shape {
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the Shape:");
+        logger.log("Enter the Shape:");
         String name = sc.nextLine();
         switch (name) {
             case "circle":
-                System.out.println("Enter the radius :");
+                logger.log("Enter the radius :");
                 int radius = sc.nextInt();
                 shape circle = new shape(radius);
-                System.out.println("Perimeter of Circle :" + circle.perimeter(radius));
-                System.out.println("Area of Circle :" + circle.area(radius));
+                logger.log("Perimeter of Circle :" + circle.perimeter(radius));
+                logger.log("Area of Circle :" + circle.area(radius));
                 break;
             case "rectangle":
                 System.out.println("Enter the length and width :");
                 int length = sc.nextInt();
                 int width = sc.nextInt();
                 shape rectangle = new shape(length, width);
-                System.out.println("Perimeter of rectangle :" + rectangle.perimeter(length, width));
-                System.out.println("Area of rectangle :" + rectangle.area(length, width));
+                logger.log("Perimeter of rectangle :" + rectangle.perimeter(length, width));
+                logger.log("Area of rectangle :" + rectangle.area(length, width));
                 break;
             case "triangle":
                 System.out.println("Enter the three sides of the traiangle:");
@@ -67,8 +67,8 @@ public class shape {
                 int s2 = sc.nextInt();
                 int base = sc.nextInt();
                 shape triangle = new shape(s1, s2, base);
-                System.out.println("Perimeter of Triangle :" + triangle.perimeter(s1, s2, base));
-                System.out.println("Area of Triangle :" + triangle.area(s1, s2, base));
+                logger.log("Perimeter of Triangle :" + triangle.perimeter(s1, s2, base));
+                logger.log("Area of Triangle :" + triangle.area(s1, s2, base));
                 break;
             default:
                 logger.log("Enter the valid shape :");
