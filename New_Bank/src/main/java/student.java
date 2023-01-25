@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class student {
+public class Student {
     String name;
     char gradelevel;
     double gp;
@@ -21,7 +21,7 @@ public class student {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        student student = new student("Arun", 'A', 8.73);
+        Student student = new Student("Arun", 'A', 8.73);
         logger.log("Enter the GPA :");
         double gpa = sc.nextDouble();
         student.updategpa(gpa);
