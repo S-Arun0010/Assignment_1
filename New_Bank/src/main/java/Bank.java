@@ -1,8 +1,8 @@
-import java.util.Scanner;
+import java.util.*;
 public class Bank {
-	private String Name;
-    private long Acc_No;
-    private int Balance;
+	String Name;
+    long Acc_No;
+     int Balance;
     public Bank(String N, long A, int B) {
         Name = N;
         Acc_No = A;
