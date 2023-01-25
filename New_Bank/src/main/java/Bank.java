@@ -1,33 +1,33 @@
 import java.util.*;
 public class Bank {
-	String Name;
-    long Acc_No;
-     int Balance;
+    String name;
+    long acc_no;
+    int balance;
     public Bank(String N, long A, int B) {
-        Name = N;
-        Acc_No = A;
-        Balance = B;
+        name = N;
+        acc_no = A;
+        balance = B;
     }
     public void Balance_Amount() {
-        System.out.println("Total Balance Amount :" + Balance + "Rs");
+        System.out.println("Total Balance Amount :" + balance + "Rs");
     }
     public void Deposit(int Deposit_Amount) {
         System.out.println("The Deposited Amount is :" + Deposit_Amount + "Rs");
-        Balance = Balance + Deposit_Amount;
+        balance = balance + Deposit_Amount;
     }
     public void Withdraw(int withdraw_Amount) {
-        if (withdraw_Amount < Balance) {
+        if (withdraw_Amount < balance) {
             System.out.println("Total Amount withdrawed :" + withdraw_Amount + "Rs");
-            Balance = Balance - withdraw_Amount;
+            balance = balance - withdraw_Amount;
         } else {
             System.out.println("Insufficient balance");
         }
     }
     public static void main(String[] args) {
         Bank a = new Bank("Arun", 123456789123456789L, 1000);
-        System.out.println("Name :" + a.Name);
-        System.out.println("Account Number :" + a.Acc_No);
-        System.out.println("Current Balance :" + a.Balance);
+        System.out.println("Name :" + a.name);
+        System.out.println("Account Number :" + a.acc_no);
+        System.out.println("Current Balance :" + a.balance);
         int check = 0;
         do {
             System.out.println("Enter the mode of Transaction :");
