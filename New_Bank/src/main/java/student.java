@@ -1,18 +1,18 @@
 import java.util.Scanner;
-public class student {
-	String Name;
-    char grade_level;
-    double GPA;
-    student(String N, char g, double gpa) {
-        Name = N;
-        grade_level = g;
-        GPA = gpa;
+public class Student {
+    String name;
+    char gradelevel;
+    double gpa;
+    student(String n, char g, double gpa) {
+        name = n;
+        gradelevel = g;
+        gpa = gpa;
     }
     public void updategpa(double gpa) {
-        GPA = gpa;
+        gpa = gpa;
     }
     public String details() {
-        return (Name + " has a " + Double.toString(GPA) + " GPA");
+        return (name + " has a " + Double.toString(gpa) + " GPA");
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -20,8 +20,8 @@ public class student {
         System.out.println("Enter the GPA :");
         double gpa = sc.nextDouble();
         Student.updategpa(gpa);
-        String S = Student.details();
-        System.out.println(S);
+        String s = Student.details();
+        System.out.println(s);
     }
 }
 
