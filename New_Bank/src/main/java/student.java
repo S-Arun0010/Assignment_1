@@ -9,7 +9,7 @@ public class Student {
         gp = gpa;
     }
     public void updategpa(double gpa) {
-        gpa = gp;
+        gp = gpa;
     }
     public String details() {
         return (name + " has a " + Double.toString(gp) + " GPA");
