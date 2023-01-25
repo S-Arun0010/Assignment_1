@@ -11,9 +11,9 @@ public class shape {
     public shape(int r) {
         radius = r;
     }
-    public shape(int l, int W) {
+    public shape(int l, int w) {
         length = l;
-        width = W;
+        width = w;
     }
     public shape(int s1, int s2, int s3) {
         a = s1;
@@ -24,7 +24,7 @@ public class shape {
         return (2 * 3.14 * r);
     }
     double perimeter(int l, int w) {
-        return 2 * ((double)l + w);
+        return 2 * ((double) l + w);
     }
     double perimeter(int a, int b, int c) {
         return (a + b + c);
@@ -74,3 +74,4 @@ public class shape {
         }
     }
 }
+
