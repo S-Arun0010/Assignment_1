@@ -24,7 +24,7 @@ public class shape {
         return (2 * 3.14 * r);
     }
     double perimeter(int l, int w) {
-        return 2 * (l + w);
+        return 2 * ((double)l + w);
     }
     double perimeter(int a, int b, int c) {
         return (a + b + c);
