@@ -1,5 +1,5 @@
 import java.util.*;
-public class Bank {
+public class bank {
     String name;
     long accno;
     int balance;
@@ -9,28 +9,28 @@ public class Bank {
         balance = b;
     }
     public void balanceamount() {
-        System.out.println("Total Balance Amount :" + balance + "Rs");
+        logger.log("Total Balance Amount :" + balance + "Rs");
     }
     public void deposit(int depositamount) {
-        System.out.println("The Deposited Amount is :" + depositamount + "Rs");
+        logger.log("The Deposited Amount is :" + depositamount + "Rs");
         balance = balance + depositamount;
     }
     public void withdraw(int withdrawamount) {
         if (withdrawamount < balance) {
-            System.out.println("Total Amount withdrawed :" + withdrawamount + "Rs");
+            logger.log("Total Amount withdrawed :" + withdrawamount + "Rs");
             balance = balance - withdrawamount;
         } else {
-            System.out.println("Insufficient balance");
+            logger.log("Insufficient balance");
         }
     }
     public static void main(String[] args) {
-        Bank a = new Bank("Arun", 123456789123456789L, 1000);
-        System.out.println("Name :" + a.name);
-        System.out.println("Account Number :" + a.accno);
-        System.out.println("Current Balance :" + a.balance);
+        bank a = new bank("Arun", 123456789123456789L, 1000);
+        logger.log("Name :" + a.name);
+       logger.log("Account Number :" + a.accno);
+        logger.log("Current Balance :" + a.balance);
         int check = 0;
         do {
-            System.out.println("Enter the mode of Transaction :");
+            logger.log("Enter the mode of Transaction :");
             Scanner sc = new Scanner(System.in);
             String expression = sc.nextLine();
             switch (expression) {
@@ -40,7 +40,7 @@ public class Bank {
                     a.deposit(depositamount);
                     break;
                 case "Withdraw":
-                    System.out.println("Enter the withdraw Amount :");
+                    logger.log("Enter the withdraw Amount :");
                     int withdrawamount = sc.nextInt();
                     a.withdraw(withdrawamount);
                     break;
@@ -48,10 +48,10 @@ public class Bank {
                     a.balanceamount();
                     break;
                 default:
-                    System.out.println("Enter the valid transaction");
+                    logger.log("Enter the valid transaction");
             }
-            System.out.println("Enter 1 to proceed for next Transactio:");
-            System.out.println("Enter 0 to end  Transaction:");
+            logger.log("Enter 1 to proceed for next Transactio:");
+           logger.log("Enter 0 to end  Transaction:");
             int test = sc.nextInt();
             check = test;
         } while (check == 1);
