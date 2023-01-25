@@ -33,7 +33,7 @@ public class shape {
         return (3.14 * r * r);
     }
     double area(int l, int w) {
-        return l * b;
+        return (double) l * b;
     }
     double area(int a, int b, int c) {
         double s = (double) (a + b + c) / 2;
