@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class shape {
+public class Shape {
     int rectangale;
     int triangle;
     int circle;
@@ -9,14 +9,14 @@ public class shape {
     int a;
     int b;
     int c;
-    public shape(int r) {
+    public Shape(int r) {
         radius = r;
     }
-    public shape(int l, int w) {
+    public Shape(int l, int w) {
         length = l;
         width = w;
     }
-    public shape(int s1, int s2, int s3) {
+    public Shape(int s1, int s2, int s3) {
         a = s1;
         b = s2;
         c = s3;
@@ -49,7 +49,7 @@ public class shape {
             case "circle":
                 logger.log("Enter the radius :");
                 int radius = sc.nextInt();
-                shape circle = new shape(radius);
+                Shape circle = new Shape(radius);
                 logger.log("Perimeter of Circle :" + circle.perimeter(radius));
                 logger.log("Area of Circle :" + circle.area(radius));
                 break;
@@ -57,16 +57,16 @@ public class shape {
                 logger.log("Enter the length and width :");
                 int length = sc.nextInt();
                 int width = sc.nextInt();
-                shape rectangle = new shape(length, width);
+                Shape rectangle = new Shape(length, width);
                 logger.log("Perimeter of rectangle :" + rectangle.perimeter(length, width));
                 logger.log("Area of rectangle :" + rectangle.area(length, width));
                 break;
             case "triangle":
-                System.out.println("Enter the three sides of the traiangle:");
+                logger.log("Enter the three sides of the traiangle:");
                 int s1 = sc.nextInt();
                 int s2 = sc.nextInt();
                 int base = sc.nextInt();
-                shape triangle = new shape(s1, s2, base);
+                Shape triangle = new Shape(s1, s2, base);
                 logger.log("Perimeter of Triangle :" + triangle.perimeter(s1, s2, base));
                 logger.log("Area of Triangle :" + triangle.area(s1, s2, base));
                 break;
