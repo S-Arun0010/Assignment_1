@@ -69,7 +69,8 @@ public class Shape {
                 int s2 = sc.nextInt();
                 int base = sc.nextInt();
                 Shape triangle = new Shape(s1, s2, base);
-                l.info("Perimeter of Triangle :" + triangle.perimeter(s1, s2, base));
+                double per = triangle.perimeter(s1, s2, base);
+                l.info("Perimeter of Triangle :" + per);
                 l.info("Area of Triangle :" + triangle.area(s1, s2, base));
                 break;
             default:
