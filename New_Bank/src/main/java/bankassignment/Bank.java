@@ -28,9 +28,9 @@ public class Bank {
     }
     public static void main(String[] args) {
         Bank a = new Bank("Arun", 123456789123456789L, 1000);
-        l.info("Name :" + a.name);
-        l.info("Account Number :" + a.acc);
-        l.info("Current Balance :" + a.balance);
+       logger.log("Name :" + a.name);
+       logger.log("Account Number :" + a.acc);
+        logger.log("Current Balance :" + a.balance);
         int check = 0;
         do {
         	l.info("Enter the mode of Transaction :");
