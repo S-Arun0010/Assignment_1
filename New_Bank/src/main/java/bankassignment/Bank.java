@@ -2,35 +2,35 @@ package bankassignment;
 import java.util.Scanner;
 import java.util.logging.Logger;
 public class Bank {
-	private String Name;
-    private long Acc_No;
-    private int Balance;
+	private String name;
+    private long acc;
+    private int balance;
     static Logger l= Logger.getLogger("com.api.jar");
-    public Bank(String N, long A, int B) {
-        Name = N;
-        Acc_No = A;
-        Balance = B;
+    public Bank(String n, long a, int b) {
+        name = n;
+        acc = a;
+        balance = b;
     }
-    public void Balance_Amount() {
-    	l.info("Total Balance Amount :" + Balance + "Rs");
+    public void balanceamount() {
+    	logger.log("Total Balance Amount :" + balance + "Rs");
     }
-    public void Deposit(int Deposit_Amount) {
-    	l.info("The Deposited Amount is :" + Deposit_Amount + "Rs");
-        Balance = Balance + Deposit_Amount;
+    public void deposit(int depositamount) {
+    	logger.log("The Deposited Amount is :" + depositamount + "Rs");
+        balance = balance + depositamount;
     }
-    public void Withdraw(int withdraw_Amount) {
-        if (withdraw_Amount < Balance) {
-        	l.info("Total Amount withdrawed :" + withdraw_Amount + "Rs");
-            Balance = Balance - withdraw_Amount;
+    public void withdraw(int withdrawamount) {
+        if (withdrawamount < balance) {
+        	logger.log("Total Amount withdrawed :" + withdrawamount + "Rs");
+            balance = balance - withdrawamount;
         } else {
         	l.info("Insufficient balance");
         }
     }
     public static void main(String[] args) {
         Bank a = new Bank("Arun", 123456789123456789L, 1000);
-        l.info("Name :" + a.Name);
-        l.info("Account Number :" + a.Acc_No);
-        l.info("Current Balance :" + a.Balance);
+        l.info("Name :" + a.name);
+        l.info("Account Number :" + a.acc);
+        l.info("Current Balance :" + a.balance);
         int check = 0;
         do {
         	l.info("Enter the mode of Transaction :");
@@ -39,16 +39,16 @@ public class Bank {
             switch (expression) {
                 case "Deposit":
                 	l.info("Enter the deposite Amount :");
-                    int Deposit_Amount = sc.nextInt();
-                    a.Deposit(Deposit_Amount);
+                    int depositamount = sc.nextInt();
+                    a.deposit(depositamount);
                     break;
                 case "Withdraw":
                 	l.info("Enter the withdraw Amount :");
-                    int withdraw_Amount = sc.nextInt();
-                    a.Withdraw(withdraw_Amount);
+                    int withdrawamount = sc.nextInt();
+                    a.withdraw(withdrawamount);
                     break;
                 case "Balance":
-                    a.Balance_Amount();
+                    a.balanceamount();
                     break;
                 default:
                 	l.info("Enter the valid transaction");
