@@ -61,7 +61,7 @@ public class Shape {
                 int width = sc.nextInt();
                 Shape rectangle = new Shape(length, width);
                 logger.log("Perimeter of rectangle :" + rectangle.perimeter(length, width));
-               logger.log("Area of rectangle :" + rectangle.area(length, width));
+                logger.log("Area of rectangle :" + rectangle.area(length, width));
                 break;
             case "triangle":
             	l.info("Enter the three sides of the traiangle:");
@@ -69,11 +69,12 @@ public class Shape {
                 int s2 = sc.nextInt();
                 int base = sc.nextInt();
                 Shape triangle = new Shape(s1, s2, base);
-                logger.log("Perimeter of Triangle :" + triangle.perimeter(s1, s2, base);
+                double per = triangle.perimeter(s1, s2, base);
+                logger.log("Perimeter of Triangle : " + per);
                 logger.log("Area of Triangle :" + triangle.area(s1, s2, base));
                 break;
             default:
             	l.info("Enter the valid shape :");
         }
-                 }
+    }
 }
