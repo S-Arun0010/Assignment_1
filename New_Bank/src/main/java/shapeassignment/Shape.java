@@ -1,7 +1,6 @@
 package shapeassignment;
 import java.util.Scanner;
 import java.util.logging.Logger;
-import java.lang.Math;
 public class Shape {
     int rectangale;
     int triangle;
@@ -9,14 +8,16 @@ public class Shape {
     int length;
     int width;
     int radius;
-    int a, b, c;
+    int a;
+    int b;
+    int c;
     static Logger l= Logger.getLogger("com.api.jar");
     public Shape(int r) {
         radius = r;
     }
-    public Shape(int l, int W) {
+    public Shape(int l, int w) {
         length = l;
-        width = W;
+        width = w;
     }
     public Shape(int s1, int s2, int s3) {
         a = s1;
@@ -27,7 +28,7 @@ public class Shape {
         return (2 * 3.14 * r);
     }
     double perimeter(int l, int w) {
-        return 2 * (l + w);
+        return 2 * ((double)l + w);
     }
     double perimeter(int a, int b, int c) {
         return (a + b + c);
@@ -36,7 +37,7 @@ public class Shape {
         return (3.14 * r * r);
     }
     double area(int l, int w) {
-        return l * b;
+        return (double)l * b;
     }
     double area(int a, int b, int c) {
         double s = (double) (a + b + c) / 2;
@@ -45,14 +46,14 @@ public class Shape {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         l.info("Enter the Shape:");
-        String Name = sc.nextLine();
-        switch (Name) {
+        String name = sc.nextLine();
+        switch (name) {
             case "circle":
             	l.info("Enter the radius :");
                 int radius = sc.nextInt();
-                Shape Circle = new Shape(radius);
-                l.info("Perimeter of Circle :" + Circle.perimeter(radius));
-                l.info("Area of Circle :" + Circle.area(radius));
+                Shape circle = new Shape(radius);
+                l.info("Perimeter of Circle :" + circle.perimeter(radius));
+                l.info("Area of Circle :" + circle.area(radius));
                 break;
             case "rectangle":
             	l.info("Enter the length and width :");
