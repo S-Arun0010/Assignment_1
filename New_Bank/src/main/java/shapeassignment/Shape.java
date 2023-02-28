@@ -12,7 +12,7 @@ public class Shape {
     int width;
     int height;
     int radius;
-    final String name = "circle";
+    String[] shapes = {"circle","rectangle","triangle"};
     public Shape(String shape,int radius) {
     	type = shape;
         this.radius = radius;
@@ -34,11 +34,11 @@ public class Shape {
     double perimeter()
     {
     	
-    	if(type.equals(name))
+    	if(type.equals(shapes[0]))
     	{
     		return (2 * 3.14 * radius);
     	}
-    	else if(type.equals("rectangle"))
+    	else if(type.equals(shapes[1]))
     	{
     		return 2 * ((double)length + width);
     	}
@@ -49,12 +49,12 @@ public class Shape {
     }
     
     double area()
-    {
-    	if(type.equals(name))
+    {   
+    	if(type.equals(shapes[0]))
     	{
     		return (3.14 * radius * radius);
     	}
-    	else if(type.equals("rectangle"))
+    	else if(type.equals(shapes[1]))
     	{
     		 return (double)length * width;
     	}
