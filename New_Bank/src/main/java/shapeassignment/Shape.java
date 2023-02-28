@@ -37,9 +37,9 @@ public class Shape {
     	{
     		return (2 * 3.14 * radius);
     	}
-    	else if(type.equals("reactangle"))
+    	else if(type.equals("rectangle"))
     	{
-    		return 2 * (length + width);
+    		return 2 * ((double)length + width);
     	}
     	else
     	{
@@ -53,9 +53,9 @@ public class Shape {
     	{
     		return (3.14 * radius * radius);
     	}
-    	else if(type.equals("reactangle"))
+    	else if(type.equals("rectangle"))
     	{
-    		 return length * width;
+    		 return (double)length * width;
     	}
     	else
     		return (0.5 * width * height);
