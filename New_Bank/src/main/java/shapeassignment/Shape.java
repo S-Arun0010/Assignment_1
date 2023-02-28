@@ -1,80 +1,103 @@
 package shapeassignment;
 import java.util.Scanner;
-import java.util.logging.Logger;
+import java.io.FileDescriptor;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 public class Shape {
-    int rectangale;
-    int triangle;
-    int circle;
+	
+	static PrintStream print = new PrintStream(new FileOutputStream(FileDescriptor.out));
+
+	String type;
     int length;
     int width;
+    int height;
     int radius;
-    int a;
-    int b;
-    int c;
-    static Logger l= Logger.getLogger("com.api.jar");
-    public Shape(int r) {
-        radius = r;
+    
+    public Shape(String shape,int radius) {
+    	type = shape;
+        this.radius = radius;
+        
     }
-    public Shape(int l, int w) {
-        length = l;
-        width = w;
+    public Shape(String shape,int length, int width) {
+    	type = shape;
+        this.length = length;
+        this.width = width; 
+       
     }
-    public Shape(int s1, int s2, int s3) {
-        a = s1;
-        b = s2;
-        c = s3;
+    public Shape(String shape,int side, int base, int height) {
+    	type = shape;
+    	length = side;
+    	width = base;
+    	this.height = height;
     }
-    double perimeter(int r) {
-        return (2 * 3.14 * r);
+
+    double perimeter()
+    {
+    	if(type.equals("circle"))
+    	{
+    		return (2 * 3.14 * radius);
+    	}
+    	else if(type.equals("reactangle"))
+    	{
+    		return 2 * (length + width);
+    	}
+    	else
+    	{
+    		return (length + width + height);
+    	}
     }
-    double perimeter(int l, int w) {
-        return 2 * ((double)l + w);
+    
+    double area()
+    {
+    	if(type.equals("circle"))
+    	{
+    		return (3.14 * radius * radius);
+    	}
+    	else if(type.equals("reactangle"))
+    	{
+    		 return length * width;
+    	}
+    	else
+    		return (0.5 * width * height);
     }
-    double perimeter(int a, int b, int c) {
-        return (a + b + c);
-    }
-    double area(int r) {
-        return (3.14 * r * r);
-    }
-    double area(int l, int w) {
-        return (double)l * b;
-    }
-    double area(int a, int b, int c) {
-        double s = (double) (a + b + c) / 2;
-        return (Math.sqrt(s * (s - a) * (s - c) * (s - b)));
-    }
+    
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        l.info("Enter the Shape:");
-        String name = sc.nextLine();
-        switch (name) {
+        print.println("Enter the Shape:");
+        String shape = sc.nextLine();
+        
+        switch (shape) {
+        
             case "circle":
-            	l.info("Enter the radius :");
+            	print.println("Enter the radius :");
                 int radius = sc.nextInt();
-                Shape circle = new Shape(radius);
-               l.log(Level.INFO,()->"Perimeter of Circle :" + circle.perimeter(radius));
-               l.log(Level.INFO,()->"Area of Circle :" + circle.area(radius));
+                Shape circle = new Shape(shape,radius);
+                print.println("Perimeter of Circle :" + circle.perimeter());
+                print.println("Area of Circle :" + circle.area());
                 break;
+                
             case "rectangle":
-            	l.info("Enter the length and width :");
+            	print.println("Enter the length and width :");
                 int length = sc.nextInt();
                 int width = sc.nextInt();
-                Shape rectangle = new Shape(length, width);
-                l.log(Level.INFO,()->"Perimeter of rectangle :" + rectangle.perimeter(length, width));
-                l.log(Level.INFO,()->"Area of rectangle :" + rectangle.area(length, width));
+                Shape rectangle = new Shape(shape,length, width);
+                print.println("Perimeter of rectangle :" + rectangle.perimeter());
+                print.println("Area of rectangle :" + rectangle.area());
                 break;
-            case "triangle":
-            	l.info("Enter the three sides of the traiangle:");
-                int s1 = sc.nextInt();
-                int s2 = sc.nextInt();
-                int base = sc.nextInt();
-                Shape triangle = new Shape(s1, s2, base);
-                double per = triangle.perimeter(s1, s2, base);
-                l.log(Level.INFO,()->"Perimeter of Triangle : " + per);
-                l.log(Level.INFO,()->"Area of Triangle :" + triangle.area(s1, s2, base));
+                
+            case "triangle":            	
+            	print.println("Enter the three sides of the traiangle:");
+                 int  side = sc.nextInt();
+                 int  base = sc.nextInt();
+                 int  height = sc.nextInt();
+                Shape triangle = new Shape(shape,side, base, height);
+                print.println("Perimeter of Triangle : " +triangle.perimeter());
+                print.println("Area of Triangle :" + triangle.area());
                 break;
-            default:
-            	l.info("Enter the valid shape :");
+                
+            default:            	
+            	print.println("Enter the valid shape :");
+            	
         }
     }
 }
