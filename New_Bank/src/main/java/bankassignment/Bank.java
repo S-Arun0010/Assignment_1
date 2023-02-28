@@ -1,62 +1,82 @@
 package bankassignment;
 import java.util.Scanner;
-import java.util.logging.Logger;
+import java.io.FileDescriptor;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 public class Bank {
+	
 	private String name;
-    private long acc;
-    private int balance;
-    static Logger l= Logger.getLogger("com.api.jar");
-    public Bank(String n, long a, int b) {
-        name = n;
-        acc = a;
-        balance = b;
+    private long accountnumber;
+    private int balance; 
+    static PrintStream print = new PrintStream(new FileOutputStream(FileDescriptor.out));
+    
+    public Bank(String name, long accountnumber, int balance) {
+        this.name = name;
+        this.accountnumber = accountnumber;
+        this.balance = balance;
     }
     public void balanceamount() {
-    	l.log(Level.INFO,()->"Total Balance Amount :" + balance + "Rs");
+    	 print.println("Total Balance Amount :" + balance + "Rs");
     }
+    
     public void deposit(int depositamount) {
-    	l.log(Level.INFO,()->"The Deposited Amount is :" + depositamount + "Rs");
-        balance = balance + depositamount;
+    	 balance = balance + depositamount;
+    	 print.println("The Deposited Amount is :" + depositamount + "Rs");         
     }
+    
     public void withdraw(int withdrawamount) {
-        if (withdrawamount < balance) {
-        	l.log(Level.INFO,()->"Total Amount withdrawed :" + withdrawamount + "Rs");
-            balance = balance - withdrawamount;
+        if (withdrawamount < balance) 
+        {    
+        	 balance = balance - withdrawamount;
+        	 print.println("Total Amount withdrawed :" + withdrawamount + "Rs");
+
         } else {
-        	l.info("Insufficient balance");
+        	 print.println("Insufficient balance");
         }
     }
-    public static void main(String[] args) {
-        Bank a = new Bank("Arun", 123456789123456789L, 1000);
-      l.log(Level.INFO,()-> "Name :" + a.name);
-       l.log(Level.INFO,()-> "Account Number :" + a.acc);
-        l.log(Level.INFO,()-> "Current Balance :" + a.balance);
+    public static void main(String[] args)
+    {
+    	Scanner sc = new Scanner(System.in);
+    	Scanner s = new Scanner(System.in);
+    	print.println("Enter the Name:");
+    	String name = s.nextLine();
+    	print.println("Enter the Account_Number:");
+    	Long accnumber = sc.nextLong();
+    	print.println("Enter the Current_Balance:");
+    	int currentbalance = sc.nextInt();
+    	
+        Bank customer = new Bank(name,accnumber,currentbalance);
+        print.println("Name :" + customer.name);
+        print.println("Account Number :" + customer.accountnumber);
+        print.println("Current Balance :" + customer.balance);
+        
         int check = 0;
         do {
-        	l.info("Enter the mode of Transaction :");
-            Scanner sc = new Scanner(System.in);
-            String expression = sc.nextLine();
-            switch (expression) {
+        	
+        	print.println("Enter the mode of Transaction :");            
+            String expressions = s.nextLine();
+            switch (expressions) {
                 case "Deposit":
-                	l.info("Enter the deposite Amount :");
-                    int depositamount = sc.nextInt();
-                    a.deposit(depositamount);
-                    break;
+                	 print.println("Enter the deposite Amount :");
+                     int depositamount = sc.nextInt();
+                     customer.deposit(depositamount);                    
+                     break;
                 case "Withdraw":
-                	l.info("Enter the withdraw Amount :");
+                	print.println("Enter the withdraw Amount :");
                     int withdrawamount = sc.nextInt();
-                    a.withdraw(withdrawamount);
+                    customer.withdraw(withdrawamount);
                     break;
                 case "Balance":
-                    a.balanceamount();
+                	customer.balanceamount();
                     break;
                 default:
-                	l.info("Enter the valid transaction");
+                	 print.println("Enter the valid transaction");
             }
-            l.info("Enter 1 to proceed for next Transactio:");
-            l.info("Enter 0 to end  Transaction:");
-            int test = sc.nextInt();
-            check = test;
+            print.println("Enter 1 to proceed for next Transaction:");
+            print.println("Enter 0 to end  Transaction:");
+            check = sc.nextInt();
         } while (check == 1);
+            
+        print.println("Thank You");
     }
 }
